@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const FullNameForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [fullName, setFullName] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -10,7 +11,7 @@ const FullNameForm = () => {
       alert('Please fill out all fields.');
       return;
     }
-    alert(`Hello, ${firstName} ${lastName}!`);
+    setFullName(`Full Name: ${firstName} ${lastName}!`);
   };
 
   return (
@@ -37,8 +38,10 @@ const FullNameForm = () => {
       <br />
       <button type="submit">Submit</button>
     </form>
+    {fullName && (
+      <div>{fullName}</div>
+    )}
     </div>
-    
   );
 };
 
